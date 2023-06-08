@@ -6,11 +6,27 @@ const INITIAL_STATE = {
 const cartReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case "ADD_TO_CART":
-            return {
-                ...state,
-                cartItems: [...state.cartItems, action.payload]
+            const indexItemAdded = state.cartItems.findIndex(item => item.id === action.payload.id)
+            if (indexItemAdded !== -1) {
+                
+                const newCartItems = [...state.cartItems]
+                newCartItems[indexItemAdded].quantity += action.payload.quantity
+                return {
+                    ...state,
+                    cartItems: newCartItems
+                }
+
+            } else {
+                
+                const newCartItems = [...state.cartItems, action.payload]
+                return {
+                    ...state,
+                    cartItems: newCartItems
+                }
+
             }
             
+
         case "UPDATE_ITEM":
             return {
                 ...state,
@@ -30,6 +46,7 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         default:
             return state
     }
+    
 }
 
 export default cartReducer
