@@ -36,7 +36,7 @@ export default function ProductShowcase() {
         addingInfo.current.innerHTML = ''
         display = true
       }
-      , 2000)
+      , 1000)
     }   
   }
 
