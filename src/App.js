@@ -14,8 +14,8 @@ function App() {
       <FloatingCart />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/produits' element={<Products />} />
-        <Route path='/produits/:id' element={<ProductShowcase />} />
+        <Route path='/products' element={<Products />} />
+        <Route path='/products/:id' element={<ProductShowcase />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/shoppingcart' element={<ShoppingCart />} />
       </Routes>
